@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 process.env.NODE_ENV = "development";
 module.exports = {
-  node: "development",
+  node: false,
   target: "web",
-  devTool: "cheap-module-source-map",
+  devtool: "cheap-module-source-map",
   entry: "./src/index",
   output: {
     path: path.resolve(__dirname, "build"),
-    pulicPath: "/",
+    publicPath: "/",
     filename: "bundle.js"
   },
   devServer: {
@@ -30,7 +30,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exlude: /node_modules/,
+        exclude: /node_modules/,
         use: ["babel-loader"]
       },
       {
